@@ -1,232 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutoriais SURI</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9fafb;
-      display: flex;
-      height: 100vh;
-    }
-    aside {
-      width: 250px;
-      background-color: #fff;
-      border-right: 1px solid #ddd;
-      padding: 1rem;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-    }
-    aside h2 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    aside button {
-      width: 100%;
-      background: none;
-      border: 1px solid #ddd;
-      padding: 0.5rem;
-      text-align: left;
-      border-radius: 6px;
-      margin-bottom: 0.25rem;
-      cursor: pointer;
-    }
-    aside button.active {
-      background-color: #f3f4f6;
-      border-color: #bbb;
-    }
-    main {
-      flex: 1;
-      padding: 1rem;
-      overflow-y: auto;
-    }
-    .step {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    .step img {
-      width: 100%;
-      margin-top: 0.5rem;
-      border-radius: 4px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutoriais SURI</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+            display: flex;
+            height: 100vh;
+        }
+        aside {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            padding: 1rem;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        aside h2 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        aside button {
+            width: 100%;
+            background: none;
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: left;
+            border-radius: 6px;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+        aside button.active {
+            background-color: #f3f4f6;
+            border-color: #bbb;
+        }
+        main {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        .step {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .step img {
+            width: 100%;
+            margin-top: 0.5rem;
+            border-radius: 4px;
+        }
+        /* Estilos do submenu */
+        .submenu {
+            display: none;
+            padding-left: 1rem; /* Adiciona um recuo para os sub-botões */
+        }
+        .submenu button {
+            width: calc(100% - 1rem); /* Ajusta a largura para o recuo */
+        }
+        .submenu.open {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <aside>
-    <h2>Tópicos</h2>
-    <button data-topic="inicio" class="active">Bem-vindo a Suri  Multieletrica</button>
-    <button data-topic="conv">Conversas</button>
-    <button data-topic="pegar">Pegar uma conversa</button>
-    <button data-topic="nova">Nova conversa</button>
-    <button data-topic="hist">Historico de conversa</button>
-    <button data-topic="shop">Suri Shop</button>
-    <button data-topic="enviar">Enviar audio, imagens e documentos</button>
-    <button data-topic="etiqueta">identificação de etiquetas</button>
-    <button data-topic="boas">Boas práticas</button>
-  </aside>
-  
-  <main id="content">
-    <h1>Aprendizado Multieletrica</h1>
-    <p>Este site mostra como operar a Suri - Multieletrica.</p>
-  </main>
+    <aside>
+        <h2>Tópicos</h2>
+        <button data-topic="inicio" class="active">Bem-vindo a Suri Multieletrica</button>
+        <button data-topic="conv" class="menu-toggle">Conversas</button>
+        <div id="submenu-conv" class="submenu">
+            <button data-topic="conv2">Introdução</button>
+            <button data-topic="enviar">Enviar Anexos</button>
+            <button data-topic="modelo">Modelo de Mensagens</button>
+            <button data-topic="pegar">Pegar uma conversa</button>
+            <button data-topic="nova">Nova conversa</button>
+            <button data-topic="hist">Historico de conversa</button>
+        </div>
+        <button data-topic="shop">Suri Shop</button>
 
-  <script>
-    const topics = {
-      inicio: {
-        title: 'Bem-vindo a Suri - Multieletrica',
-        html: `<p>Na tela bem vindo usar essa de tela inicia e mostrar que na imagem exemplo:Tela inicial do sistema.
-                  para acessar as conversas vai no menu lateral esquerdo: Conversas>Atendimentos.</p>
-                  <img src="imgs/bemvindo.jpg" alt="Bem Vindo">`
-      },
-      conv: {
-        title: 'Conversas',
-        html: `<img src="imgs/conversas.jpg" alt="Conversas" width="1100" height="500">
-        <p> <ol><li>Cliente em espera de atendimento;</li>
-            <li>Seus clientes em atendimento; </li>
-            <li>Histórico de conversas de clientes carterizados (caso o cliente não for carterizado solicitar ao seu Líder de setor para verificar para você);</li>
-            <li>Exportar e iniciar uma conversa;</li>
-            <li>Local aonde fica a conversa com o cliente;</li>
-            <li>Detalhes do seu cliente como nome, telefone e dados em gerais;</li>
-            <li>Aqui você consegue fazer uma venda ou usar fotos do itens para enviar ao cliente.</li></ol></p>
-            
-            <img src="imgs/conversas2.jpg" alt="Conversas2">
-            <ul><li>Clique em Audio para começar a gravar e clique novamente para enviar ao cliente;</li>
-            <li>Clique em Arquivo para anexar um arquivo, navegue por suas pastas para encontrar o arquivo desejado;</li>
-            <li>Clique em Modelo de Mensagem para selecionar uma mensagem pronta e editar conforme a necessidade (Sinta-se livre para dar ideias de novas mensagens, é possivel tambem fazer mensagens prontas de ofertas em andamento)
-            <li>Clique em Mensagens Agendadas para programar uma mensagem para seu cliente, exemplo:
-              Jorge me pediu pra chamá-lo amanhã as 15h -só configurar para enviar na data e horário desejado.</ul>
-            `
-      },      
-      pegar: {
-        title: 'Pegar uma conversa',
-        html: `
-          <div class="step">
-            <strong>1 - Abra a fila</strong>
-            <p>No painel 'Conversas' > 'Em espera'.</p>
-            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
-          </div>
-          <div class="step">
-            <strong>2 - Selecione a conversa</strong>
-            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
-            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
-          </div>
-        `
-      },
-      nova: {
-        title: 'Nova conversa',
-        html: `
-          <div class="step">
-            <strong>1 - Criar</strong>
-            <p>Clique em 'Nova conversa' e escolha o canal (WhatsApp, Web, etc.).</p>
-          </div>
-          <div class="step">
-            <strong>2 - Mensagem inicial</strong>
-            <p>Apresente-se e defina o objetivo. Use templates quando disponível.</p>
-          </div>
-        `
-      },
-      hist: {
-        title: 'Historico de conversa',
-        html: `
-          <div class="step">
-            <strong>1 - Abra a fila</strong>
-            <p>No painel 'Conversas' > 'Em espera'.</p>
-            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
-          </div>
-          <div class="step">
-            <strong>2 - Selecione a conversa</strong>
-            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
-            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
-          </div>
-        `
-      },
+        <button data-topic="etiqueta">Identificação de etiquetas</button>
+        <button data-topic="boas">Boas práticas</button>
+    </aside>
+    
+    <main id="content">
+        <h1>Aprendizado Multieletrica</h1>
+        <p>Este site mostra como operar a Suri - Multieletrica.</p>
+    </main>
 
-      shop: {
-        title: 'Suri Shop',
-        html: `
-          <div class="step">
-            <strong>1 - Abra a fila</strong>
-            <p>No painel 'Conversas' > 'Em espera'.</p>
-            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
-          </div>
-          <div class="step">
-            <strong>2 - Selecione a conversa</strong>
-            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
-            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
-          </div>
-        `
-      },
+    <script>
+        const topics = {
+            inicio: {
+                title: 'Bem-vindo a Suri - Multieletrica',
+                html: `<p>Na tela bem vindo usar essa de tela inicia e mostrar que na imagem exemplo:Tela inicial do sistema.
+                        para acessar as conversas vai no menu lateral esquerdo: Conversas>Atendimentos.</p>
+                        <img src="imgs/bemvindo.jpg" alt="Bem Vindo">`
+            },
+            conv: {
+                title: 'Conversas',
+                html: ``
+            },
+            conv2:{
+              title:'Introdução',
+              html:`<img src="imgs/conversas.jpg" alt="Conversas" width="1100" height="500">
+                <p> <ol><li>Cliente em espera de atendimento;</li>
+                    <li>Seus clientes em atendimento; </li>
+                    <li>Histórico de conversas de clientes carterizados (caso o cliente não for carterizado solicitar ao seu Líder de setor para verificar para você);</li>
+                    <li>Exportar e iniciar uma conversa;</li>
+                    <li>Local aonde fica a conversa com o cliente;</li>
+                    <li>Detalhes do seu cliente como nome, telefone e dados em gerais;</li>
+                    <li>Aqui você consegue fazer uma venda ou usar fotos do itens para enviar ao cliente.</li></ol></p>`
+            },
+            enviar: {
+                title: 'Enviar Anexos',
+                html: `                    
+                    <img src="imgs/conversas2.jpg" alt="Conversas2">
+                    <ul><li>Clique em Audio para começar a gravar e clique novamente para enviar ao cliente;</li>
+                    <li>Clique em Arquivo para anexar um arquivo, navegue por suas pastas para encontrar o arquivo desejado;</li>
+                    <li>Clique em Modelo de Mensagem para selecionar uma mensagem pronta e editar conforme a necessidade (Sinta-se livre para dar ideias de novas mensagens, é possivel tambem fazer mensagens prontas de ofertas em andamento)
+                    <li>Clique em Mensagens Agendadas para programar uma mensagem para seu cliente, exemplo:
+                    Jorge me pediu pra chamá-lo amanhã as 15h -só configurar para enviar na data e horário desejado.</ul>
+                `
+            },            
+            modelo:{
+              title:'Modelos de Mensagens',
+              html:`<p>Modelos de mensagens existentes</p>
+              <img src="imgs/modelomsg.jpg" alt="ModeloMensagem">
+              <br />
+              <p>Ao abrir um modelo você pode se deparar com esses balões com numeros, você deve preenche-los com a informação necessaria<br />
+                Exemplo da imagem: Substituir o 1 por pedido 123456</p>
+              <p>Algumas mensagens possuem botões de reposta, basta aguardar o cliente clicar em alguma das opções para continuar</p>
+              <img src="imgs/modelomsg2.jpg" alt="ModeloMensagem2">
+              <img src="imgs/modelomsg3.jpg" alt="ModeloMensagem3">
+              `
+            },  
+            pegar: {
+                title: 'Pegar uma conversa',
+                html: `
+                    <div class="step">
+                        <strong>1 - Abra a fila</strong>
+                        <p>No painel 'Conversas' > 'Em espera'.</p>
+                        <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+                    </div>
+                    <div class="step">
+                        <strong>2 - Selecione a conversa</strong>
+                        <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+                        <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+                    </div>
+                `
+            },
+            nova: {
+                title: 'Nova conversa',
+                html: `
+                    <div class="step">
+                        <strong>1 - Criar</strong>
+                        <p>Clique em 'Nova conversa' e escolha o canal (WhatsApp, Web, etc.).</p>
+                    </div>
+                    <div class="step">
+                        <strong>2 - Mensagem inicial</strong>
+                        <p>Apresente-se e defina o objetivo. Use templates quando disponível.</p>
+                    </div>
+                `
+            },
+            hist: {
+                title: 'Historico de conversa',
+                html: `
+                    <div class="step">
+                        <strong>1 - Abra a fila</strong>
+                        <p>No painel 'Conversas' > 'Em espera'.</p>
+                        <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+                    </div>
+                    <div class="step">
+                        <strong>2 - Selecione a conversa</strong>
+                        <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+                        <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+                    </div>
+                `
+            },
+            shop: {
+                title: 'Suri Shop',
+                html: `
+                    <div class="step">
+                        <strong>1 - Abra a fila</strong>
+                        <p>No painel 'Conversas' > 'Em espera'.</p>
+                        <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+                    </div>
+                    <div class="step">
+                        <strong>2 - Selecione a conversa</strong>
+                        <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+                        <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+                    </div>
+                `
+            },
 
-      enviar: {
-        title: 'Enviar uma mensagem',
-        html: `
-          <div class="step">
-            <strong>1 - Abra a fila</strong>
-            <p>No painel 'Conversas' > 'Em espera'.</p>
-            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
-          </div>
-          <div class="step">
-            <strong>2 - Selecione a conversa</strong>
-            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
-            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
-          </div>
-        `
-      },
-      
-      etiqueta: {
-        title: 'Identificação de etiquetas',
-        html: `
-          <div class="step">
-            <strong>1 - Abra a fila</strong>
-            <p>No painel 'Conversas' > 'Em espera'.</p>
-            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
-          </div>
-          <div class="step">
-            <strong>2 - Selecione a conversa</strong>
-            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
-            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
-          </div>
-        `
-      },
+            etiqueta: {
+                title: 'Identificação de etiquetas',
+                html: `
+                    <div class="step">
+                        <strong>1 - Abra a fila</strong>
+                        <p>No painel 'Conversas' > 'Em espera'.</p>
+                        <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+                    </div>
+                    <div class="step">
+                        <strong>2 - Selecione a conversa</strong>
+                        <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+                        <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+                    </div>
+                `
+            },
+            boas: {
+                title: 'Boas Práticas',
+                html: `
+                    <div class="step">
+                        <strong>1 - Abra a fila</strong>
+                        <p>No painel 'Conversas' > 'Em espera'.</p>
+                        <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+                    </div>
+                    <div class="step">
+                        <strong>2 - Selecione a conversa</strong>
+                        <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+                        <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+                    </div>
+                `
+            },
+        };
 
-     boas: {
-        title: 'Boas Práticas',
-        html: `
-          <div class="step">
-            <strong>1 - Abra a fila</strong>
-            <p>No painel 'Conversas' > 'Em espera'.</p>
-            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
-          </div>
-          <div class="step">
-            <strong>2 - Selecione a conversa</strong>
-            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
-            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
-          </div>
-        `
-      },
-    };
+        const menuToggle = document.querySelector('.menu-toggle[data-topic="conv"]');
+        const submenu = document.getElementById('submenu-conv');
+        const allButtons = document.querySelectorAll('aside button');
+        const contentButtons = document.querySelectorAll('aside button:not(.menu-toggle)');
+        const content = document.getElementById('content');
 
-    const buttons = document.querySelectorAll('aside button');
-    const content = document.getElementById('content');
+        // Evento para mostrar/esconder o submenu
+        menuToggle.addEventListener('click', () => {
+            submenu.classList.toggle('open');
+        });
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        // Evento para carregar o conteúdo na tela principal
+        contentButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove a classe 'active' de todos os botões
+                allButtons.forEach(b => b.classList.remove('active'));
+                
+                // Adiciona a classe 'active' ao botão clicado
+                btn.classList.add('active');
 
-        const topic = topics[btn.dataset.topic];
-        content.innerHTML = `<h1>${topic.title}</h1>${topic.html}`;
-      });
-    });
-  </script>
+                const topic = topics[btn.dataset.topic];
+                content.innerHTML = `<h1>${topic.title}</h1>${topic.html}`;
+            });
+        });
+    </script>
 </body>
 </html>
