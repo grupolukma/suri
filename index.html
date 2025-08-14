@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutoriais SURI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      display: flex;
+      height: 100vh;
+    }
+    aside {
+      width: 250px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 1rem;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    aside h2 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    aside button {
+      width: 100%;
+      background: none;
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+      border-radius: 6px;
+      margin-bottom: 0.25rem;
+      cursor: pointer;
+    }
+    aside button.active {
+      background-color: #f3f4f6;
+      border-color: #bbb;
+    }
+    main {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .step {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .step img {
+      width: 100%;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h2>Tópicos</h2>
+    <button data-topic="inicio" class="active">Bem-vindo a Suri  Multieletrica</button>
+    <button data-topic="pegar">Pegar uma conversa</button>
+    <button data-topic="nova">Nova conversa</button>
+    <button data-topic="hist">Historico de conversa</button>
+    <button data-topic="shop">Suri Shop</button>
+    <button data-topic="enviar">Enviar audio, imagens e documentos</button>
+    <button data-topic="etiqueta">identificação de etiquetas</button>
+    <button data-topic="boas">Boas práticas</button>
+  </aside>
+  
+  <main id="content">
+    <h1>Aprendizado Multieletrica</h1>
+    <p>Este site mostra como operar a Suri - Multieletrica.</p>
+  </main>
+
+  <script>
+    const topics = {
+      inicio: {
+        title: 'Bem-vindo a Suri - Multieletrica',
+        html: `<p>Este site mostra como operar o SURI: pegar/abrir conversas, visualizar histórico, usar o SURI Shop, transferir, gerar imagens e enviar promoções.</p>`
+      },
+      pegar: {
+        title: 'Pegar uma conversa',
+        html: `
+          <div class="step">
+            <strong>1 - Abra a fila</strong>
+            <p>No painel 'Conversas' > 'Em espera'.</p>
+            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+          </div>
+          <div class="step">
+            <strong>2 - Selecione a conversa</strong>
+            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+          </div>
+        `
+      },
+      nova: {
+        title: 'Nova conversa',
+        html: `
+          <div class="step">
+            <strong>1 - Criar</strong>
+            <p>Clique em 'Nova conversa' e escolha o canal (WhatsApp, Web, etc.).</p>
+          </div>
+          <div class="step">
+            <strong>2 - Mensagem inicial</strong>
+            <p>Apresente-se e defina o objetivo. Use templates quando disponível.</p>
+          </div>
+        `
+      },
+      hist: {
+        title: 'Historico de conversa',
+        html: `
+          <div class="step">
+            <strong>1 - Abra a fila</strong>
+            <p>No painel 'Conversas' > 'Em espera'.</p>
+            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+          </div>
+          <div class="step">
+            <strong>2 - Selecione a conversa</strong>
+            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+          </div>
+        `
+      },
+
+      shop: {
+        title: 'Suri Shop',
+        html: `
+          <div class="step">
+            <strong>1 - Abra a fila</strong>
+            <p>No painel 'Conversas' > 'Em espera'.</p>
+            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+          </div>
+          <div class="step">
+            <strong>2 - Selecione a conversa</strong>
+            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+          </div>
+        `
+      },
+
+      enviar: {
+        title: 'Enviar uma mensagem',
+        html: `
+          <div class="step">
+            <strong>1 - Abra a fila</strong>
+            <p>No painel 'Conversas' > 'Em espera'.</p>
+            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+          </div>
+          <div class="step">
+            <strong>2 - Selecione a conversa</strong>
+            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+          </div>
+        `
+      },
+      
+      etiqueta: {
+        title: 'Identificação de etiquetas',
+        html: `
+          <div class="step">
+            <strong>1 - Abra a fila</strong>
+            <p>No painel 'Conversas' > 'Em espera'.</p>
+            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+          </div>
+          <div class="step">
+            <strong>2 - Selecione a conversa</strong>
+            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+          </div>
+        `
+      },
+
+     boas: {
+        title: 'Boas Práticas',
+        html: `
+          <div class="step">
+            <strong>1 - Abra a fila</strong>
+            <p>No painel 'Conversas' > 'Em espera'.</p>
+            <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
+          </div>
+          <div class="step">
+            <strong>2 - Selecione a conversa</strong>
+            <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
+            <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
+          </div>
+        `
+      },
+    };
+
+    const buttons = document.querySelectorAll('aside button');
+    const content = document.getElementById('content');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const topic = topics[btn.dataset.topic];
+        content.innerHTML = `<h1>${topic.title}</h1>${topic.html}`;
+      });
+    });
+  </script>
+</body>
+</html>
