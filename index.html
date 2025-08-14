@@ -64,6 +64,7 @@
   <aside>
     <h2>Tópicos</h2>
     <button data-topic="inicio" class="active">Bem-vindo a Suri  Multieletrica</button>
+    <button data-topic="conv">Conversas</button>
     <button data-topic="pegar">Pegar uma conversa</button>
     <button data-topic="nova">Nova conversa</button>
     <button data-topic="hist">Historico de conversa</button>
@@ -82,8 +83,29 @@
     const topics = {
       inicio: {
         title: 'Bem-vindo a Suri - Multieletrica',
-        html: `<p>Este site mostra como operar o SURI: pegar/abrir conversas, visualizar histórico, usar o SURI Shop, transferir, gerar imagens e enviar promoções.</p>`
+        html: `<p>Na tela bem vindo usar essa de tela inicia e mostrar que na imagem exemplo:Tela inicial do sistema.
+                  para acessar as conversas vai no menu lateral esquerdo: Conversas>Atendimentos.</p>
+                  <img src="imgs/bemvindo.jpg" alt="Bem Vindo">`
       },
+      conv: {
+        title: 'Conversas',
+        html: `<img src="imgs/conversas.jpg" alt="Conversas" width="1100" height="500">
+        <p> <ol><li>Cliente em espera de atendimento;</li>
+            <li>Seus clientes em atendimento; </li>
+            <li>Histórico de conversas de clientes carterizados (caso o cliente não for carterizado solicitar ao seu Líder de setor para verificar para você);</li>
+            <li>Exportar e iniciar uma conversa;</li>
+            <li>Local aonde fica a conversa com o cliente;</li>
+            <li>Detalhes do seu cliente como nome, telefone e dados em gerais;</li>
+            <li>Aqui você consegue fazer uma venda ou usar fotos do itens para enviar ao cliente.</li></ol></p>
+            
+            <img src="imgs/conversas2.jpg" alt="Conversas2">
+            <ul><li>Clique em Audio para começar a gravar e clique novamente para enviar ao cliente;</li>
+            <li>Clique em Arquivo para anexar um arquivo, navegue por suas pastas para encontrar o arquivo desejado;</li>
+            <li>Clique em Modelo de Mensagem para selecionar uma mensagem pronta e editar conforme a necessidade (Sinta-se livre para dar ideias de novas mensagens, é possivel tambem fazer mensagens prontas de ofertas em andamento)
+            <li>Clique em Mensagens Agendadas para programar uma mensagem para seu cliente, exemplo:
+              Jorge me pediu pra chamá-lo amanhã as 15h -só configurar para enviar na data e horário desejado.</ul>
+            `
+      },      
       pegar: {
         title: 'Pegar uma conversa',
         html: `
