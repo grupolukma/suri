@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <title>Tutoriais SURI</title>
     <style>
         body {
@@ -74,18 +75,18 @@
 <body>
     <aside>
         <h2>Tópicos</h2>
-        <button data-topic="inicio" class="active">Bem-vindo a Suri Multieletrica</button>
-        <button data-topic="conv" class="menu-toggle">Conversas</button>
+        <button data-topic="inicio" class="active"><i class='bx  bxs-home' style='color:#000000'></i> Bem-vindo a Suri Multieletrica</button>
+        <button data-topic="conv" class="menu-toggle"><i class='bx  bxs-message-dots' style='color:#000000' ></i> Conversas</button>
         <div id="submenu-conv" class="submenu">
             <button data-topic="conv2">Introdução</button>
+            <button data-topic="convshop">Shop</button>            
             <button data-topic="enviar">Enviar Anexos</button>
             <button data-topic="modelo">Modelo de Mensagens</button>
             <button data-topic="pegar">Pegar uma conversa</button>
             <button data-topic="nova">Nova conversa</button>
             <button data-topic="hist">Historico de conversa</button>
         </div>
-        <button data-topic="shop">Suri Shop</button>
-
+        <button data-topic="shop"><i class='bx  bxs-cart'  style='color:#000000'></i> Suri Shop</button>
         <button data-topic="etiqueta">Identificação de etiquetas</button>
         <button data-topic="boas">Boas práticas</button>
     </aside>
@@ -99,8 +100,7 @@
         const topics = {
             inicio: {
                 title: 'Bem-vindo a Suri - Multieletrica',
-                html: `<p>Na tela bem vindo usar essa de tela inicia e mostrar que na imagem exemplo:Tela inicial do sistema.
-                        para acessar as conversas vai no menu lateral esquerdo: Conversas>Atendimentos.</p>
+                html: `<p>Para acessar os atendimentos use o menu lateral esquerdo para selecionar Conversas e depois Atendimentos</p>
                         <img src="imgs/bemvindo.jpg" alt="Bem Vindo">`
             },
             conv: {
@@ -116,18 +116,55 @@
                     <li>Exportar e iniciar uma conversa;</li>
                     <li>Local aonde fica a conversa com o cliente;</li>
                     <li>Detalhes do seu cliente como nome, telefone e dados em gerais;</li>
-                    <li>Aqui você consegue fazer uma venda ou usar fotos do itens para enviar ao cliente.</li></ol></p>`
+                    <li>Aqui você consegue fazer uma venda ou usar fotos do itens para enviar ao cliente.</li></ol></p>
+                    
+                   <img src="imgs/conversas2.jpg" alt="Conversas2" width="1100" height="500"> 
+                <p><ol><li>Ao iniciar uma conversa sera aberto um campo para digitar mensagem;</li>
+                   <li>Anexar arquivo;</li>
+                   <li>IA (inteligencia artificial) que pode te ajudar em resposta para o cliente;</li>
+                   <li>Audio, arquivos, modelos de mensagens e mensagens agendadas;</li>
+                   <li>Transferir conversas.</li></ol>
+                   
+                   `
             },
             enviar: {
                 title: 'Enviar Anexos',
                 html: `                    
-                    <img src="imgs/conversas2.jpg" alt="Conversas2">
+                    <img src="imgs/anexos.jpg" alt="Anexos">
                     <ul><li>Clique em Audio para começar a gravar e clique novamente para enviar ao cliente;</li>
                     <li>Clique em Arquivo para anexar um arquivo, navegue por suas pastas para encontrar o arquivo desejado;</li>
                     <li>Clique em Modelo de Mensagem para selecionar uma mensagem pronta e editar conforme a necessidade (Sinta-se livre para dar ideias de novas mensagens, é possivel tambem fazer mensagens prontas de ofertas em andamento)
                     <li>Clique em Mensagens Agendadas para programar uma mensagem para seu cliente, exemplo:
                     Jorge me pediu pra chamá-lo amanhã as 15h -só configurar para enviar na data e horário desejado.</ul>
                 `
+            },
+            convshop:{
+                title:'Shop Conversas',
+                html:`<img src="imgs/shop.jpg" alt="Shop">
+                   <p>Ao clicar no menu shop ele te dará a opção de inicializar novo pedido, 
+                    não necessariamente será utilizado para formular pedidos, pode ser utilizado par enviar uma foto ou descrição de um produto</p>
+                    
+                   <img src="imgs/shop2.jpg" alt="Shop2"> <img src="imgs/item3.jpg" alt="Item3"> 
+                   <p>Ao inciar ficará assim</p>
+                   <ol><li>Pesquisar pelo nome do produto ou por tipo;</li>
+                   <li>Produtos encontrados;</li>
+                   <li>Clique para enviar o produto no Whatsapp do cliente que está conversando <b>Foto acima</b>;</li>
+                   <li>Clique para adicionar no carrinho do cliente;</li>
+                   <li>Clique para enviar o catalago inteiro de produtos (produtos que estão configurados no site);</li>
+                   <li>Clique para verificar o carrinho do cliente</li></ol><br />
+                
+                   <p><b>Explicação sobre o carrinho do cliente</b></p>
+                   <img src="imgs/carrinho.jpg" alt="Carrinho">
+                    <ol><li>Itens adicionados no carrinho;</li>
+                    <li>Dados dos clientes;</li>
+                    <li>Forma de entrega e pagamento;</li>
+                    <li>Resumo do pedido;</li>
+                    <li>Tem três opções</li>
+                        <ul><li>você pode enviar um resumo para o cliente;</li>
+                        <li>você pode enviar um fluxo semi automatico para finalizar a compra sozinho;</li>
+                        <li>Cancelar pedido</li></ul></ol>
+                `
+            
             },            
             modelo:{
               title:'Modelos de Mensagens',
