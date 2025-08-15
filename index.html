@@ -87,8 +87,8 @@
             <button data-topic="hist">Historico de conversa</button>
         </div>
         <button data-topic="shop"><i class='bx  bxs-cart'  style='color:#000000'></i> Suri Shop</button>
-        <button data-topic="etiqueta">Identificação de etiquetas</button>
-        <button data-topic="boas">Boas práticas</button>
+        <button data-topic="etiqueta"><i class='bx  bxs-tag'  ></i> Identificação de etiquetas</button>
+        <button data-topic="boas"><i class='bx  bxs-info-square'  ></i> Boas práticas</button>
     </aside>
     
     <main id="content">
@@ -160,9 +160,10 @@
                     <li>Forma de entrega e pagamento;</li>
                     <li>Resumo do pedido;</li>
                     <li>Tem três opções</li>
-                        <ul><li>você pode enviar um resumo para o cliente;</li>
-                        <li>você pode enviar um fluxo semi automatico para finalizar a compra sozinho;</li>
+                        <ul><li>Você pode enviar um resumo para o cliente(Imagem1);</li>
+                        <li>Você pode enviar um fluxo semi automatico para finalizar a compra sozinho(Imagem2);</li>
                         <li>Cancelar pedido</li></ul></ol>
+                    <img src="imgs/resumo.jpg" alt="Resumo"><img src="imgs/fluxosemiauto.jpg" alt="FluxoSemiAuto">
                 `
             
             },            
@@ -254,17 +255,8 @@
             },
             boas: {
                 title: 'Boas Práticas',
-                html: `
-                    <div class="step">
-                        <strong>1 - Abra a fila</strong>
-                        <p>No painel 'Conversas' > 'Em espera'.</p>
-                        <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
-                    </div>
-                    <div class="step">
-                        <strong>2 - Selecione a conversa</strong>
-                        <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
-                        <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
-                    </div>
+                html: `<ol><li>Sempre finalizar um atendimento após o fim da conversa;
+                    <img src="imgs/modelomsg.jpg" alt="ModeloMensagem">
                 `
             },
         };
