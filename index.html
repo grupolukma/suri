@@ -47,6 +47,13 @@
             padding: 1rem;
             overflow-y: auto;
         }
+
+        p{
+            font-size: 20px;
+        }
+        li{
+            font-size: 18px;
+        }
         .step {
             background-color: #fff;
             border: 1px solid #ddd;
@@ -82,6 +89,7 @@
             <button data-topic="convshop">Shop</button>            
             <button data-topic="enviar">Enviar Anexos</button>
             <button data-topic="modelo">Modelo de Mensagens</button>
+            <button data-topic="assistente">Assistente</button>
             <button data-topic="pegar">Pegar uma conversa</button>
             <button data-topic="nova">Nova conversa</button>
             <button data-topic="hist">Historico de conversa</button>
@@ -178,6 +186,19 @@
               <img src="imgs/modelomsg2.jpg" alt="ModeloMensagem2">
               <img src="imgs/modelomsg3.jpg" alt="ModeloMensagem3">
               `
+            },
+            assistente:{
+                title:"Assistente de conversa",
+                html:`
+                    <p>Clique em assistant, ele vai começar a analisar a conversa e informar a melhor resposta</p>
+                    <img src="imgs/assist1.jpg" alt="Assistente1" width="500" height="500">
+                    <p>Após isso o assistente te informará uma resposta, <b>SEMPRE</b> confira a mensagem antes de enviar ao seu cliente, 
+                        você pode editar e adicionar mais informação caso necessário.</p>
+                    <img src="imgs/assist2.jpg" alt="Assistente2" width="500" height="353">
+                    <p>Clique em enviar e a mensagem aparecerá para seu cliente</p>
+                    <img src="imgs/assist3.jpg" alt="Assistente3">
+
+                `
             },  
             pegar: {
                 title: 'Pegar uma conversa',
@@ -248,16 +269,15 @@
             etiqueta: {
                 title: 'Identificação de etiquetas',
                 html: `
-                    <div class="step">
-                        <strong>1 - Abra a fila</strong>
-                        <p>No painel 'Conversas' > 'Em espera'.</p>
-                        <img src="https://via.placeholder.com/640x360?text=Fila+Em+Espera" alt="Tela da fila Em espera">
-                    </div>
-                    <div class="step">
-                        <strong>2 - Selecione a conversa</strong>
-                        <p>Clique para ver detalhes (cliente, status, últimas mensagens).</p>
-                        <img src="https://via.placeholder.com/640x360?text=Detalhes+da+Conversa" alt="Detalhes da conversa selecionada">
-                    </div>
+                    <p> Tags (ou etiquetas) são utilizadas para identificar por quais setores o cliente passou ou quais ações ele realizou</p>
+                    <img src="imgs/tags.jpg" alt="Tags"><br />
+                    <p style="color:#4D8A6B">Comercial: O cliente está em atendimento com o comercial</p>
+                    <p style="color:#2AD030">Whatsapp: O cliente veio pelo whatsapp</p>
+                    <p style="color:#40B9BA">Vendas: O cliente solicitou atendimento no vendas</p>
+                    <p style="color:#724144">Shop-Cancelado: O cliente cancelou um pedido</p>
+                    <p style="color:#D97947">Shop-Abandonado: O cliente abandonou um pedido aberto</p>
+                    <p style="color:#9AA820">Suporte: O cliente solicitou atendimento de suporte</p><br />
+                    <p>Existem outras Tags criadas e caso necessario nos informe para adicionarmos novas</p>
                 `
             },
             boas: {
@@ -270,7 +290,15 @@
                     <img src="imgs/capslock.jpg" alt="Capslock"><br />
                     <li>Sempre que iniciar um atendimento será enviado uma mensagem automatica, sem a necessidade de
                         escrever manualmente
-                    <img src="imgs/mensagem.jpg" alt="MensagemInicial"><br />        
+                    <img src="imgs/mensagem.jpg" alt="MensagemInicial"><br /> 
+                    <p><b>AUSÊNCIA</b></p>
+                    <p>Caso necessite se ausentar brevemente, altere seu status para "Ausente"</p>
+                    <img src="imgs/status1.jpg" alt="Status1">
+                    <img src="imgs/status2.jpg" alt="Status2"><br /> 
+                    <p>Ao selecionar ausente, você pode inserir uma frase que sera enviada ao cliente que entrar em contato, 
+                        exemplo: Estou em almoço, retorno as 14h</p>
+                    <img src="imgs/ausente1.jpg" alt="Ausente1">
+                    <img src="imgs/ausente2.jpg" alt="Ausente2"><br /> 
                 `
             },
         };
