@@ -86,6 +86,7 @@
         <button data-topic="conv" class="menu-toggle"><i class='bx  bxs-message-dots' style='color:#000000' ></i> Conversas</button>
         <div id="submenu-conv" class="submenu">
             <button data-topic="conv2">Introdução</button>
+            <button data-topic="transf">Transferir Conversa</button>
             <button data-topic="convshop">Shop</button>            
             <button data-topic="enviar">Enviar Anexos</button>
             <button data-topic="modelo">Modelo de Mensagens</button>
@@ -137,6 +138,16 @@
                    <p>Em automático fica o histórico dos seus clientes carterizados</p> 
 
                    `
+            },
+            transf:{
+                title:"Transferir conversa",
+                html:`
+                    <img src="imgs/transferir.jpg" alt="Transferir">
+                    <ol><li>Selecione o departamento</li>
+                    <li>Selecione o agente <b>apenas se o cliente desejar falar com alguem em especifico</b></li>
+                    <li>Selecione não, <b>somente selecione SIM se tiver passado dados confidenciais ao cliente e precisa tranferir para alguem que não pode visualizar</b></li>
+                    <li>Adicione uma observação que será apenas visualizada por quem receber a conversa</li>                    
+                `
             },
             enviar: {
                 title: 'Enviar Anexos',
